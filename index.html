@@ -1,0 +1,648 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Why NoSql?</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content="Thomas A. Valletta" />
+        <link href="css/impress.css" rel="stylesheet" />
+        <link href="css/prism.css" rel="stylesheet" />
+        <style>
+          @font-face {
+            font-family: 'QlassikMediumRegular';
+            src: url('css/font/Qlassik-Medium/Qlassik_TB-webfont.eot');
+            src: url('css/font/Qlassik-Medium/Qlassik_TB-webfont.eot?#iefix') format('embedded-opentype'),
+            url('css/font/Qlassik-Medium/Qlassik_TB-webfont.woff') format('woff'),
+            url('css/font/Qlassik-Medium/Qlassik_TB-webfont.ttf') format('truetype'),
+            url('css/font/Qlassik-Medium/Qlassik_TB-webfont.svg#QlassikMediumRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+
+          }
+
+          @font-face {
+            font-family: 'QlassikBoldRegular';
+            src: url('css/font/Qlassik-Medium/QlassikBold_TB-webfont.eot');
+            src: url('css/font/Qlassik-Medium/QlassikBold_TB-webfont.eot?#iefix') format('embedded-opentype'),
+            url('css/font/Qlassik-Medium/QlassikBold_TB-webfont.woff') format('woff'),
+            url('css/font/Qlassik-Medium/QlassikBold_TB-webfont.ttf') format('truetype'),
+            url('css/font/Qlassik-Medium/QlassikBold_TB-webfont.svg#QlassikBoldRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+
+          }
+
+          @font-face {
+            font-family: 'Typewriter';
+            src: url('css/font/Typewriter/veteran_typewriter-webfont.eot');
+            src: url('css/font/Typewriter/veteran_typewriter-webfont.eot?#iefix') format('embedded-opentype'),
+            url('css/font/Typewriter/veteran_typewriter-webfont.woff') format('woff'),
+            url('css/font/Typewriter/veteran_typewriter-webfont.ttf') format('truetype'),
+            url('css/font/Typewriter/veteran_typewriter-webfont.svg#QlassikBoldRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+          }
+
+          .step.nofade {
+            opacity: 1;
+          }
+
+          .step.invis {
+            opacity: 0;
+          }
+
+          .step.invis.active {
+            opacity: 1;
+          }
+
+
+
+          h1 {font-size: 128px; line-height: 164px;}
+          h2 {font-size: 96px; line-height: 96px; color: #2A628F;}
+          h3 {font-size: 64px; line-height: 64px; color: #16324F;}
+          h4 {font-size: 48px; line-height: 48px; color: #13293D;}
+          h5 {font-size: 32px; line-height: 32px;}
+          h6 {font-size: 24px; line-height: 24px;}
+
+
+          svg {
+            stroke: black;
+            stroke-width: 12;
+            fill: gray;
+          }
+
+          .timeline.client svg, .timeline-l.client svg {
+            fill: red;
+          }
+
+          .timeline.server svg, .timeline-l.server svg {
+            fill: green;
+          }
+
+          .timeline.database svg, .timeline-l.database svg {
+            fill: dodgerblue;
+          }
+
+          .timeline svg {
+            position: absolute;
+            top: 36px;
+            left: -85px;
+          }
+          .timeline.active {
+            background-color: rgba(255, 255, 255, .2);
+            border-radius: 0 88px 88px 0;
+            padding-top: 0;
+            padding-bottom: 0;
+
+            top: 10px;
+            padding-left: 80px;
+          }
+          .timeline.active svg {
+            position: absolute;
+            top: -4px;
+            left: -45px;
+          }
+
+
+          .timeline-l svg {
+            position: absolute;
+            top: 36px;
+            left: 855px;
+          }
+          .timeline-l.active {
+            background-color: rgba(255, 255, 255, .2);
+            border-radius: 88px 0 0 88px;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-right: 92px;
+            top: 2px;
+          }
+          .timeline-l.active svg {
+            position: absolute;
+            top: -4px;
+            left: 863px;
+          }
+
+          table {
+            font-size: .46em;
+            width: 100%;
+          }
+          table tr {
+            border-bottom: 1px solid #444;
+          }
+          table th {
+            background-color: #444;
+            color: rgb(75, 179, 253);
+            font-weight: bold;
+            padding: 7px;
+          }
+          table td {
+            padding: 7px;
+            text-align: center;
+          }
+
+          hr {
+            border-color: #444;
+          }
+
+          .small {
+            font-size: 36px;
+            color: #2A628F;
+          }
+          .x-small {
+            font-size: 30px;
+            color: #16324F;
+          }
+          .xx-small {
+            font-size: 24px;
+            color: #13293D;
+          }
+          .xxx-small {
+            font-size: 18px;
+            color: #13293D;
+          }
+
+          .timeline-l {
+            padding-right: 100px;
+            text-align: right;
+          }
+
+          .paper {
+            width: 640px;
+            font-family: Typewriter;
+            font-size: 18px;
+            float: right;
+            padding: 37px;
+            background-color: antiquewhite;
+            box-shadow: 11px 11px 18px 6px rgba(0, 0, 0, .2);
+          }
+
+          .img-circular {
+            float: right;
+            border: 10px solid black;
+            width: 150px;
+            height: 150px;
+            background-image: url('');
+            background-size: cover;
+            display: block;
+            border-radius:50%;
+          }
+        </style>
+      <script type='text/javascript' src="js/prism.js"></script>
+    </head>
+    <body>
+    <p class="fallback-message">
+        Your browser doesn't support impress.js.  Try Chrome or Safari.
+    </p>
+    <div id="impress">
+      <div id="title" class="step" data-x="0" data-y="300">
+          <h2 style="text-align: center">Why</h2>        
+          <h1 style="text-align: center; font-size: 240px; line-height: 240px">NoSQL?</h1>
+      </div>
+
+      <!-- Timeline -->
+      <div>
+        <div id="timeline" class="step skip" data-x="0" data-y="1000"></div>
+        <div id="timeline2" class="step nofade skip " data-x="0" data-y="1000" data-scale=".25"></div>
+
+        <div id="today" class="step nofade skip timeline" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
+          Today's Database Landscape
+        </div>
+
+        <div id="today-detail" class="step invis small" data-x="425" data-y="880" data-rotate-z="-90" data-scale=".25">
+          The landscape of todays Database options came about as a response to the demands of large web companies and is strongly influenced by popular development platforms
+        </div>
+
+
+        <!-- Database Developments -->
+        <div id="beginning" class="step invis stay timeline database" data-x="-405" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1975 - Beginning of History
+        </div>
+
+        <div id="efcodd1nf" class="step invis stay timeline database skip" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1970 - E.F. Codd - 1NF Paper
+        </div>
+
+        <div id="efcodd1nf-img" class="step skip invis stay" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
+          <img src="img/efcodd_150.png" class="img-circular"/>
+        </div>
+
+        <div id="efcodd1nf-detail" class="step invis small" data-show="efcodd1nf-img efcodd1nf beginning" data-x="-480" data-y="880" data-rotate-z="-90" data-scale=".25">
+          <br/><br/><br/>
+          Between 1970 and 1972 E.F. Codd published a paper describing how a database schema, or logical organization, could be disconnected from physical information storage.  This became the basis for a dynasty of database theory that would dominate the world for forty years.  We call it the relational database.
+        </div>
+
+        <div id="oracle" class="step invis stay timeline database" data-show="oracle-img" data-x="-325" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1979 - Oracle releases 1st commercial RDBMS
+        </div>
+
+        <div id="oracle-img" class="step skip invis stay" data-x="-325" data-y="850" data-rotate-z="-90" data-scale=".25">
+          <img src="img/larry_ellison_150.jpg" class="img-circular"/>
+        </div>
+
+        <div id="oneeternitylater" class="step invis stay database" data-show="oracle-img" data-x="-130" data-y="880" data-rotate-z="-90" data-scale=".25">
+          <h4>One</h4>
+          <h4>Eternity</h4>
+          <h4>Later</h4>
+        </div>
+
+        <div id="brewer" class="step invis stay timeline database" data-show="brewer-img" data-x="75" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1999 - Eric Brewer publishes CAP theorem 
+        </div>
+
+        <div id="brewer-img" class="step skip invis stay" data-x="75" data-y="850" data-rotate-z="-90" data-scale=".25">
+          <img src="img/eric_brewer_150.png" class="img-circular"/>
+        </div>
+
+        <div id="neo4j" class="step invis stay timeline database" data-x="95" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2000 - Neo4j (graph database) is started
+        </div>
+
+        <div id="JSON" class="step invis stay timeline database" data-show="JSON-img" data-x="115" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2001 - Douglas Crockford - JSON
+        </div>
+
+        <div id="JSON-img" class="step skip invis stay" data-x="115" data-y="850" data-rotate-z="-90" data-scale=".25">
+          <img src="img/douglas_crockford_150.png" class="img-circular"/>
+        </div>
+
+        <div id="memcached" class="step invis stay timeline database" data-x="155" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2003 - Memcached - distributed key/value
+        </div>
+
+        <div id="memcached" class="step invis staydatabase stay" data-x="175" data-y="880" data-rotate-z="-90" data-scale=".25">
+          <h5>Lots of talk about sharding</h5>
+        </div>
+
+        <div id="couchdb" class="step invis stay timeline database" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2005 - CouchDB - document database
+        </div>
+
+        <div id="bigtable-started" class="step invis stay timeline-l database" data-x="175" data-y="1115" data-rotate-z="-90" data-scale=".25">
+          2004 - Google starts bigtable
+        </div>
+
+        <div id="hadoop" class="step invis stay timeline-l database" data-x="195" data-y="1115" data-rotate-z="-90" data-scale=".25">
+          2005 - Yahoo - Hadoop
+        </div>
+
+        <div id="bigtable" class="step invis stay timeline-l database" data-x="215" data-y="1115" data-rotate-z="-90" data-scale=".25">
+          2006 - Google publishes bigtable
+        </div>
+
+        <div id="dynamo" class="step invis stay timeline-l database" data-x="235" data-y="1115" data-rotate-z="-90" data-scale=".25">
+          2007 - Amazon - Dynamo
+        </div>
+
+        <div id="c10k-data1" class="step invis" data-x="255" data-y="1215" data-z="90" data-rotate-z="-90" data-rotate-x="85" data-scale=".25">
+          <img class="paper" src="img/dynamo.png">
+        </div>
+
+        <div id="lots" class="step invis stay timeline database" data-show="lots-end" data-x="280" data-y="880" data-rotate-z="-90" data-scale=".25">
+          <div>2007 - MongoDB</div>
+          <div>2008 - Cassandra (by Facebook)</div>
+          <div>2008 - Voldemort (by LinkedIn)</div>
+          <div>2009 - Redis</div>
+          <div>2009 - Riak</div>
+          <div>2009 - HBase</div>
+        </div>
+
+        <div id="timeline-end" class="step" data-x="0" data-y="1000" data-scale=".8"></div>
+      </div>
+
+
+      <!-- Notes -->
+
+      <div id="outline" class="step" data-x="1000" data-y="500" data-scale=".3">
+        <h4 style="text-align: center">Why would I use NoSql?</h4>
+        <hr/>
+        <ol>
+          <li>Types</li>
+          <li>CAP</li>
+          <li>Schema</li>
+          <li>Stability &amp; Reliability</li>
+          <li>Developer Productivity</li>
+          <li>Sharding</li>
+          <li>Operational Topologies</li>
+          <li>ORM Concerns</li>
+        </ol>
+      </div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Types</h4>
+        <hr noshade/>
+        <ul>
+          <li>Relational - <span class="x-small">Oracle, PostgreSQL, MySQL, SQL Server</span></li>
+          <li>Columnar - <span class="x-small">HBase, Cassandra</span></li>
+          <li>Document - <span class="x-small">CouchDB, MongoDB, MarkLogic</span></li>
+          <li>Key/Value - <span class="x-small">Riak, Redis, Memcached</span></li>
+          <li>Graph - <span class="x-small">Neo4j, ArangoDB</span></li>
+          <li>Search - <span class="x-small">ElasticSearch</span></li>
+        </ul>
+      </div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Primary Drivers</h4>
+        <hr noshade/>
+        <ul>
+          <li>Relational
+            <ol start="1" style="list-style-type: decimal; font-size: .7em">
+              <li>Separation of concerns: storage/data</li>
+              <li>Expesive storage</li>
+              <li>Predictable search response times</li>
+            </ol>
+          </li>
+        </Ul>
+      </div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Primary Drivers</h4>
+        <hr noshade/>
+        <ul>
+          <li>BigTable (Map/Reduce)
+            <ol start="1" style="list-style-type: decimal; font-size: .7em">
+              <li>Ridiculous amounts of data</li>
+              <li>storage is cheap</li>
+              <li>Partition Tolerance</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Primary Drivers</h4>
+        <hr noshade/>
+        <ul>
+          <li>DynamoDB
+            <ol start="1" style="list-style-type: decimal; font-size: .7em">
+              <li>Partition Tolerance</li>
+              <li>Ridiculous amounts of data</li>
+              <li>storage is cheap</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Primary Drivers</h4>
+        <hr noshade/>
+        <ul>
+          <li>Indexed DB
+            <ol start="1" style="list-style-type: decimal; font-size: .7em">
+              <li>SQLite was predictably slow</li>
+              <li>Ultra-low system requirements</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">CAP Theorem</h4>
+        <table>
+          <tr>
+            <th>Guarantee</th>
+            <th>Definition</th>
+          </tr>
+          <tr>
+            <th>Consistency</th>
+            <td>Every read receives the most recent write or an error</td>
+          </tr>
+          <tr>
+            <th>Availability</th>
+            <td>Every request receives a response, without guarantee that it contains the most recent version of the information</td>
+          </tr>
+          <tr>
+            <th>Partition Tolerance</th>
+            <td>The system continues to operate despite an arbitrary number of messages being dropped by the network between nodes</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <img src="img/salesforce.png" />
+      </div>
+
+      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h1>"MongoDB is the SnapChat of Databases"</h1>
+      </div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <table>
+          <tr>
+            <th>Company</th>
+            <th>Database</th>
+          </tr>
+          <tr>
+            <td>Google</td>
+            <td>Bigtable</td>
+          </tr>
+          <tr>
+            <td>Amazon</td>
+            <td>DynamoDB</td>
+          </tr>
+          <tr>
+            <td>Netflix</td>
+            <td>Cassandra</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Development Story</h4>
+        <hr noshade/>
+        <ul>
+          <li>Open Session in View Pattern</li>
+          <li>Object Relational Mismatch</li>
+        </ul>
+      </div>
+
+      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Sharding</h4>
+        <hr noshade/>
+        <ol>
+          <li style="font-size: .7em">'Sharding' a database across many server instances can be achieved with SQL databases, but usually is accomplished through SANs and other complex arrangements for making hardware act as a single server.</li>
+          <li style="font-size: .7em">NoSQL databases, on the other hand, usually support auto-sharding, meaning that they natively and automatically spread data across an arbitrary number of servers, without requiring the application to even be aware of the composition of the server pool. Data and query load are automatically balanced across servers, and when a server goes down, it can be quickly and transparently replaced with no application disruption.</li>
+          <li style="font-size: .7em">https://www.mongodb.com/nosql-explained</li>
+        </ol>
+      </div>
+
+      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
+
+      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
+        <h4 style="text-align: center">Operational Topology</h4>
+        <hr noshade/>
+        <ol start="1" style="list-style-type: decimal">
+          <li>Master / Slave</li>
+          <li>Dynamo Ring</li>
+          <li>Replica Sets / Elections</li>
+        </ol>
+      </div>
+
+      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
+
+      <div class="step invisible" data-x="50" data-y="700" data-rotate-x="-50" data-rotate-y="40" data-rotate-z="-20" data-scale="1">
+        <h6>Thanks!</h6>
+        <h4>@tvalletta</h4>
+        <br/><br/><br/><br/><br/>
+      </div>
+
+    </div>
+    <script type="text/javascript" src="js/impress.js"></script>
+    <script type='text/javascript' src='js/d3.v3.min.js'></script>
+    <script>
+      var el = document.getElementById("impress");
+
+      function addD3() {
+        var svg = d3.select('#timeline2')
+            .append('svg')
+            .attr('width', 3200)
+            .attr('height', 80)
+            .style('position', 'absolute')
+            .style('left', '-1190px')
+            .style('top', '15px');
+
+        svg.append('line')
+            .attr('x1', 20)
+            .attr('y1', 40)
+            .attr('x2', 3180)
+            .attr('y2', 40);
+
+
+        var svg2 = d3.selectAll('.timeline')
+            .append('svg')
+            .attr('width', 80)
+            .attr('height', 80);
+
+        svg2.append('circle')
+            .attr('cx', 40)
+            .attr('cy', 40)
+            .attr('r', 12);
+
+
+        var svg3 = d3.selectAll('.timeline-l')
+            .append('svg')
+            .attr('width', 80)
+            .attr('height', 80);
+
+        svg3.append('circle')
+            .attr('cx', 40)
+            .attr('cy', 40)
+            .attr('r', 12);
+
+      }
+
+      var hidden = [];
+      var shown = [];
+      var highlighted = [];
+      var faded = [];
+
+      el.addEventListener("impress:stepenter", function(event) {
+
+        d3.select(event.target).select('circle')
+          .transition()
+            .attr('r', 24);
+
+        if (event.target.classList.contains('stay')) {
+          event.target.style.opacity = 1;
+        }
+
+        // --- data-show ---
+        if (event.target.hasAttribute('data-show')) {
+          var showList = event.target.getAttribute('data-show').split(' ');
+          for (var i = 0; i < showList.length; ++i) {
+            var $el = document.getElementById(showList[i]);
+            shown.push({el: $el, opacity: $el.style.opacity});
+            $el.style.opacity = 1;
+          }
+        }
+
+        // --- data-hide ---
+        if (event.target.hasAttribute('data-hide')) {
+          var hideList = event.target.getAttribute('data-hide').split(' ');
+          for (var i = 0; i < hideList.length; ++i) {
+            var $el = document.getElementById(hideList[i]);
+            hidden.push({el: $el, opacity: $el.style.opacity});
+            $el.style.opacity = 0;
+          }
+        }
+
+        // --- data-highlight ---
+        if (event.target.hasAttribute('data-highlight')) {
+          var highlightList = event.target.getAttribute('data-highlight').split(' ');
+          for (var i = 0; i < highlightList.length; ++i) {
+            var $el = document.getElementById(highlightList[i]);
+            highlighted.push($el);
+            $el.style['text-shadow'] = '0 0 5px white, 0 0 10px white, 0 0 30px white';
+          }
+        }
+
+        // --- data-fade ---
+        if (event.target.hasAttribute('data-fade')) {
+          var fadeList = event.target.getAttribute('data-fade').split(' ');
+          for (var i = 0; i < fadeList.length; ++i) {
+            var $el = document.getElementById(fadeList[i]);
+            faded.push({el: $el, opacity: $el.style.opacity});
+            $el.style.opacity = 0.2;
+          }
+        }
+
+      }, false);
+
+      el.addEventListener("impress:stepleave", function(event) {
+
+        d3.select(event.target).select('circle')
+          .transition()
+            .attr('r', 12);
+
+        // --- data-show ---
+        if (hidden.length) {
+          for (var i = 0; i < shown.length; ++i) {
+            shown[i].el.style.opacity = shown[i].opacity;
+          }
+          shown = [];
+        }
+
+        // --- data-hide ---
+        if (hidden.length) {
+          for (var i = 0; i < hidden.length; ++i) {
+            hidden[i].el.style.opacity = hidden[i].opacity;
+          }
+          hidden = [];
+        }
+
+        // --- data-highlighted ---
+        if (highlighted.length) {
+          for (var i = 0; i < highlighted.length; ++i) {
+            highlighted[i].style['text-shadow'] = 'none';
+          }
+          highlighted = [];
+        }
+
+        // --- data-faded ---
+        if (faded.length) {
+          for (var i = 0; i < faded.length; ++i) {
+            faded[i].el.style.opacity = faded[i].opacity;
+          }
+          faded = [];
+        }
+
+      }, false);
+
+      document.addEventListener("impress:init", function(event) {
+        addD3();
+      });
+
+      impress().init();
+
+    </script>
+    </body>
+</html>
