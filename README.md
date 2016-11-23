@@ -1,4 +1,4 @@
-# [Full Stack JavaScript](https://tvalletta.github.io/fullstackjs/)
-### By Gabriel Dayley & Thomas A. Valletta
+# [Presentation: Why NoSQL?](https://tvalletta.github.io/pres-why-nosql/)
+### By Thomas A. Valletta
 
-https://tvalletta.github.io/fullstackjs/ 
+https://tvalletta.github.io/pres-why-nosql/
