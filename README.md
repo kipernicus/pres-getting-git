@@ -1,4 +1,4 @@
-# [Presentation: Why NoSQL?](https://tvalletta.github.io/pres-why-nosql/)
-### By Thomas A. Valletta
+# [Presentation: Getting Git?](https://kipernicus.github.io/pres-getting-git/)
+### By Kip Armstrong
 
-https://tvalletta.github.io/pres-why-nosql/
+https://kipernicus.github.io/pres-getting-git/

@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
     <head>
-        <title>Why NoSql?</title>
+        <title>Getting Git</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="author" content="Thomas A. Valletta" />
+        <meta name="author" content="Kip Armstrong" />
         <link href="css/impress.css" rel="stylesheet" />
         <link href="css/prism.css" rel="stylesheet" />
         <style>
@@ -186,6 +186,19 @@
             display: block;
             border-radius:50%;
           }
+
+          .img-square {
+            float: right;
+            border: 10px solid black;
+            width: 150px;
+            height: 150px;
+            background-image: url('');
+            background-size: cover;
+            display: block;
+          }
+          .footnote {
+            font-size: 50%;
+          }
         </style>
       <script type='text/javascript' src="js/prism.js"></script>
     </head>
@@ -195,8 +208,8 @@
     </p>
     <div id="impress">
       <div id="title" class="step" data-x="0" data-y="300">
-          <h2 style="text-align: center">Why</h2>        
-          <h1 style="text-align: center; font-size: 240px; line-height: 240px">NoSQL?</h1>
+          <h2 style="text-align: center">Getting</h2>
+          <h1 style="text-align: center; font-size: 240px; line-height: 240px">Git</h1>
       </div>
 
       <!-- Timeline -->
@@ -205,105 +218,94 @@
         <div id="timeline2" class="step nofade skip " data-x="0" data-y="1000" data-scale=".25"></div>
 
         <div id="today" class="step nofade skip timeline" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
-          Today's Database Landscape
+          Why Git?  How did we get here?
         </div>
 
         <div id="today-detail" class="step invis small" data-x="425" data-y="880" data-rotate-z="-90" data-scale=".25">
-          The landscape of todays Database options came about as a response to the demands of large web companies and is strongly influenced by popular development platforms
+          Git is part of the latest generation of Version Control Systems (VCS) and is more specifically referred to as a Distributed Version Control System (DVCS).
         </div>
 
 
         <!-- Database Developments -->
         <div id="beginning" class="step invis stay timeline database" data-x="-405" data-y="880" data-rotate-z="-90" data-scale=".25">
-          1975 - Beginning of History
+          Why Version Control?
         </div>
 
-        <div id="efcodd1nf" class="step invis stay timeline database skip" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
-          1970 - E.F. Codd - 1NF Paper
+        <div id="vcsfeatures" class="step invis stay timeline database skip" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
+          3 Major Features of VCS
         </div>
 
-        <div id="efcodd1nf-img" class="step skip invis stay" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
-          <img src="img/efcodd_150.png" class="img-circular"/>
-        </div>
-
-        <div id="efcodd1nf-detail" class="step invis small" data-show="efcodd1nf-img efcodd1nf beginning" data-x="-480" data-y="880" data-rotate-z="-90" data-scale=".25">
+        <div id="vcsfeatures-detail" class="step invis small" data-show="vcsfeatures beginning" data-x="-480" data-y="880" data-rotate-z="-90" data-scale=".25">
           <br/><br/><br/>
-          Between 1970 and 1972 E.F. Codd published a paper describing how a database schema, or logical organization, could be disconnected from physical information storage.  This became the basis for a dynasty of database theory that would dominate the world for forty years.  We call it the relational database.
+          Reversibility<br/> Concurrency<br/> Annotation<br/>
+          <span class="footnote">See http://www.catb.org/~esr/writings/version-control/version-control.html</span>
         </div>
 
-        <div id="oracle" class="step invis stay timeline database" data-show="oracle-img" data-x="-325" data-y="880" data-rotate-z="-90" data-scale=".25">
-          1979 - Oracle releases 1st commercial RDBMS
+        <div id="sccs" class="step invis stay timeline database" data-show="sccs-img" data-x="-325" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1972 - Marc Rochkind<br/> Source Code Control System (SCCS)
         </div>
 
-        <div id="oracle-img" class="step skip invis stay" data-x="-325" data-y="850" data-rotate-z="-90" data-scale=".25">
-          <img src="img/larry_ellison_150.jpg" class="img-circular"/>
+        <div id="sccs-img" class="step skip invis stay" data-x="-325" data-y="850" data-rotate-z="-90" data-scale=".25">
+          <img src="img/rochkind.png" class="img-circular"/>
         </div>
 
-        <div id="oneeternitylater" class="step invis stay database" data-show="oracle-img" data-x="-130" data-y="880" data-rotate-z="-90" data-scale=".25">
-          <h4>One</h4>
-          <h4>Eternity</h4>
-          <h4>Later</h4>
+        <!--<div id="oneeternitylater" class="step invis stay database" data-show="sccs-img" data-x="-130" data-y="880" data-rotate-z="-90" data-scale=".25">-->
+          <!--<h4>One</h4>-->
+          <!--<h4>Eternity</h4>-->
+          <!--<h4>Later</h4>-->
+        <!--</div>-->
+
+        <div id="rcs" class="step invis stay timeline database" data-show="rcs-img" data-x="-175" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1982 - Walter Tichy<br/> Revision Control System (RCS)
         </div>
 
-        <div id="brewer" class="step invis stay timeline database" data-show="brewer-img" data-x="75" data-y="880" data-rotate-z="-90" data-scale=".25">
-          1999 - Eric Brewer publishes CAP theorem 
+        <div id="rcs-img" class="step skip invis stay" data-x="-175" data-y="850" data-rotate-z="-90" data-scale=".25">
+          <img src="img/tichy.png" class="img-circular"/>
         </div>
 
-        <div id="brewer-img" class="step skip invis stay" data-x="75" data-y="850" data-rotate-z="-90" data-scale=".25">
-          <img src="img/eric_brewer_150.png" class="img-circular"/>
+        <div id="cvs" class="step invis stay timeline database" data-show="cvs-img" data-x="-100" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1986 - Dick Grune<br/> Concurrent Versions System (CVS)
         </div>
 
-        <div id="neo4j" class="step invis stay timeline database" data-x="95" data-y="880" data-rotate-z="-90" data-scale=".25">
-          2000 - Neo4j (graph database) is started
+        <div id="cvs-img" class="step skip invis stay" data-x="-100" data-y="850" data-rotate-z="-90" data-scale=".25">
+          <img src="img/grune.png" class="img-circular"/>
         </div>
 
-        <div id="JSON" class="step invis stay timeline database" data-show="JSON-img" data-x="115" data-y="880" data-rotate-z="-90" data-scale=".25">
-          2001 - Douglas Crockford - JSON
+        <div id="cvs-tcp" class="step invis stay timeline database" data-x="-25" data-y="880" data-rotate-z="-90" data-scale=".25">
+          1994 - CVS Gets TCP/IP Support
         </div>
 
-        <div id="JSON-img" class="step skip invis stay" data-x="115" data-y="850" data-rotate-z="-90" data-scale=".25">
-          <img src="img/douglas_crockford_150.png" class="img-circular"/>
+        <div id="SVN" class="step invis stay timeline database" data-show="SVN-img" data-x="50" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2000 - Apache<br/>Subversion (SVN)
         </div>
 
-        <div id="memcached" class="step invis stay timeline database" data-x="155" data-y="880" data-rotate-z="-90" data-scale=".25">
-          2003 - Memcached - distributed key/value
+        <div id="SVN-img" class="step skip invis stay" data-x="50" data-y="850" data-rotate-z="-90" data-scale=".25">
+          <img src="img/svn.png" class="img-square"/>
         </div>
 
-        <div id="memcached" class="step invis staydatabase stay" data-x="175" data-y="880" data-rotate-z="-90" data-scale=".25">
-          <h5>Lots of talk about sharding</h5>
+        <div id="others" class="step step-left invis stay timeline-l database" data-x="-40" data-y="1115" data-rotate-z="-90" data-scale=".25">
+          1992-2000<br/> ClearCase, Perforce, SourceSafe,<br/> TFVC, and many others
         </div>
 
-        <div id="couchdb" class="step invis stay timeline database" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
-          2005 - CouchDB - document database
+        <div id="bitkeeper" class="step invis stay timeline database" data-x="100" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2000 - Bitkeeper
         </div>
 
-        <div id="bigtable-started" class="step invis stay timeline-l database" data-x="175" data-y="1115" data-rotate-z="-90" data-scale=".25">
-          2004 - Google starts bigtable
+        <div id="bitkeeper-dist" class="step invis staydatabase stay" data-x="125" data-y="880" data-rotate-z="-90" data-scale=".25">
+          <h5>First major distributed VCS</h5>
         </div>
 
-        <div id="hadoop" class="step invis stay timeline-l database" data-x="195" data-y="1115" data-rotate-z="-90" data-scale=".25">
-          2005 - Yahoo - Hadoop
+        <div id="git" class="step invis stay timeline database" data-x="185" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2005 - Enter Git
         </div>
 
-        <div id="bigtable" class="step invis stay timeline-l database" data-x="215" data-y="1115" data-rotate-z="-90" data-scale=".25">
-          2006 - Google publishes bigtable
+        <div id="github" class="step invis stay timeline database" data-x="225" data-y="880" data-rotate-z="-90" data-scale=".25">
+          2008 - Github Launches
         </div>
 
-        <div id="dynamo" class="step invis stay timeline-l database" data-x="235" data-y="1115" data-rotate-z="-90" data-scale=".25">
-          2007 - Amazon - Dynamo
-        </div>
-
-        <div id="c10k-data1" class="step invis" data-x="255" data-y="1215" data-z="90" data-rotate-z="-90" data-rotate-x="85" data-scale=".25">
-          <img class="paper" src="img/dynamo.png">
-        </div>
-
-        <div id="lots" class="step invis stay timeline database" data-show="lots-end" data-x="280" data-y="880" data-rotate-z="-90" data-scale=".25">
-          <div>2007 - MongoDB</div>
-          <div>2008 - Cassandra (by Facebook)</div>
-          <div>2008 - Voldemort (by LinkedIn)</div>
-          <div>2009 - Redis</div>
-          <div>2009 - Riak</div>
-          <div>2009 - HBase</div>
+        <div id="vcs-history" class="step invis" data-x="255" data-y="1215" data-z="90" data-rotate-z="-90" data-rotate-x="85" data-scale=".25">
+          <img class="paper" src="img/vcs-history.png">
+          <p class="footnote" style="text-align: center">http://ericsink.com/vcbe/html/history_of_version_control.html</p>
         </div>
 
         <div id="timeline-end" class="step" data-x="0" data-y="1000" data-scale=".8"></div>
@@ -313,186 +315,31 @@
       <!-- Notes -->
 
       <div id="outline" class="step" data-x="1000" data-y="500" data-scale=".3">
-        <h4 style="text-align: center">Why would I use NoSql?</h4>
+        <h4 style="text-align: center">Why would I use Git?</h4>
         <hr/>
         <ol>
-          <li>Types</li>
-          <li>CAP</li>
-          <li>Schema</li>
-          <li>Stability &amp; Reliability</li>
-          <li>Developer Productivity</li>
-          <li>Sharding</li>
-          <li>Operational Topologies</li>
-          <li>ORM Concerns</li>
+          <li>Space is cheap</li>
+          <li>Decentralized</li>
+          <li>Easy Branching</li>
+          <li>Pull Requests/Code Reviews</li>
+          <li>Managed Repositories</li>
         </ol>
       </div>
 
       <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Types</h4>
+        <h4 style="text-align: center">Hands On Roadmap</h4>
         <hr noshade/>
         <ul>
-          <li>Relational - <span class="x-small">Oracle, PostgreSQL, MySQL, SQL Server</span></li>
-          <li>Columnar - <span class="x-small">HBase, Cassandra</span></li>
-          <li>Document - <span class="x-small">CouchDB, MongoDB, MarkLogic</span></li>
-          <li>Key/Value - <span class="x-small">Riak, Redis, Memcached</span></li>
-          <li>Graph - <span class="x-small">Neo4j, ArangoDB</span></li>
-          <li>Search - <span class="x-small">ElasticSearch</span></li>
+          <li>Cloning</li>
+          <li>Basics of Committing</li>
+          <li>Branching and Merging</li>
+          <li>Stashing and Merge Conflicts</li>
+          <li>Cherry Picking Commits</li>
+          <li>Push, Pull, and Remotes</li>
+          <li>Github Features</li>
+          <li>Rebasing, Squashing, Bisect</li>
+          <li>Precommit Hooks</li>
         </ul>
-      </div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Primary Drivers</h4>
-        <hr noshade/>
-        <ul>
-          <li>Relational
-            <ol start="1" style="list-style-type: decimal; font-size: .7em">
-              <li>Separation of concerns: storage/data</li>
-              <li>Expesive storage</li>
-              <li>Predictable search response times</li>
-            </ol>
-          </li>
-        </Ul>
-      </div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Primary Drivers</h4>
-        <hr noshade/>
-        <ul>
-          <li>BigTable (Map/Reduce)
-            <ol start="1" style="list-style-type: decimal; font-size: .7em">
-              <li>Ridiculous amounts of data</li>
-              <li>storage is cheap</li>
-              <li>Partition Tolerance</li>
-            </ol>
-          </li>
-        </ul>
-      </div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Primary Drivers</h4>
-        <hr noshade/>
-        <ul>
-          <li>DynamoDB
-            <ol start="1" style="list-style-type: decimal; font-size: .7em">
-              <li>Partition Tolerance</li>
-              <li>Ridiculous amounts of data</li>
-              <li>storage is cheap</li>
-            </ol>
-          </li>
-        </ul>
-      </div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Primary Drivers</h4>
-        <hr noshade/>
-        <ul>
-          <li>Indexed DB
-            <ol start="1" style="list-style-type: decimal; font-size: .7em">
-              <li>SQLite was predictably slow</li>
-              <li>Ultra-low system requirements</li>
-            </ol>
-          </li>
-        </ul>
-      </div>
-
-      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">CAP Theorem</h4>
-        <table>
-          <tr>
-            <th>Guarantee</th>
-            <th>Definition</th>
-          </tr>
-          <tr>
-            <th>Consistency</th>
-            <td>Every read receives the most recent write or an error</td>
-          </tr>
-          <tr>
-            <th>Availability</th>
-            <td>Every request receives a response, without guarantee that it contains the most recent version of the information</td>
-          </tr>
-          <tr>
-            <th>Partition Tolerance</th>
-            <td>The system continues to operate despite an arbitrary number of messages being dropped by the network between nodes</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <img src="img/salesforce.png" />
-      </div>
-
-      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h1>"MongoDB is the SnapChat of Databases"</h1>
-      </div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <table>
-          <tr>
-            <th>Company</th>
-            <th>Database</th>
-          </tr>
-          <tr>
-            <td>Google</td>
-            <td>Bigtable</td>
-          </tr>
-          <tr>
-            <td>Amazon</td>
-            <td>DynamoDB</td>
-          </tr>
-          <tr>
-            <td>Netflix</td>
-            <td>Cassandra</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Development Story</h4>
-        <hr noshade/>
-        <ul>
-          <li>Open Session in View Pattern</li>
-          <li>Object Relational Mismatch</li>
-        </ul>
-      </div>
-
-      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Sharding</h4>
-        <hr noshade/>
-        <ol>
-          <li style="font-size: .7em">'Sharding' a database across many server instances can be achieved with SQL databases, but usually is accomplished through SANs and other complex arrangements for making hardware act as a single server.</li>
-          <li style="font-size: .7em">NoSQL databases, on the other hand, usually support auto-sharding, meaning that they natively and automatically spread data across an arbitrary number of servers, without requiring the application to even be aware of the composition of the server pool. Data and query load are automatically balanced across servers, and when a server goes down, it can be quickly and transparently replaced with no application disruption.</li>
-          <li style="font-size: .7em">https://www.mongodb.com/nosql-explained</li>
-        </ol>
-      </div>
-
-      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
-
-      <div class="step invisible" data-x="1100" data-y="500" data-z="150" data-scale=".3" data-rotate-y="-85">
-        <h4 style="text-align: center">Operational Topology</h4>
-        <hr noshade/>
-        <ol start="1" style="list-style-type: decimal">
-          <li>Master / Slave</li>
-          <li>Dynamo Ring</li>
-          <li>Replica Sets / Elections</li>
-        </ol>
-      </div>
-
-      <div class="step" data-show="outline" data-x="1000" data-y="500" data-scale=".3"></div>
-
-      <div class="step invisible" data-x="50" data-y="700" data-rotate-x="-50" data-rotate-y="40" data-rotate-z="-20" data-scale="1">
-        <h6>Thanks!</h6>
-        <h4>@tvalletta</h4>
-        <br/><br/><br/><br/><br/>
       </div>
 
     </div>
